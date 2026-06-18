@@ -398,32 +398,6 @@ const PROJECTS = [
   //     },
   //   },
 
-  //   /* ── PROJECT 4 ──────────────────────────────────────────────
-  //      UPDATE: A Unity game
-  //   ──────────────────────────────────────────────────────────── */
-  //   {
-  //     id: "unity-game",
-  //     title: "[ Your Game Title ]", // UPDATE
-  //     category: "game",
-  //     badge: "Game",
-  //     description:
-  //       "UPDATE: Genre, platform, and what makes this game mechanically interesting. One or two sharp sentences.",
-  //     thumbnail: null,
-  //     detail: {
-  //       longDesc: `UPDATE: Tell the story of this game. What's the core loop?
-  //         What did you build custom — AI, physics, procedural generation, shaders?`,
-  //       tech: ["Unity", "C#"], // UPDATE: add your actual tools
-  //       media: [],
-  //       links: [
-  //         // { label: "itch.io", url: "https://itch.io/..." },
-  //         // { label: "GitHub",  url: "https://github.com/..." }
-  //       ],
-  //     },
-  //   },
-
-  //   /* ── PROJECT 5 ──────────────────────────────────────────────
-  //      UPDATE: A system / tool / algorithm
-  //   ──────────────────────────────────────────────────────────── */
   {
     id: "pathfinding-system",
     title: "Clearance-Based A* Pathfinder", // UPDATE
