@@ -1,0 +1,836 @@
+<!doctype html>
+<html lang="en" data-theme="dark-purple">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- UPDATE: Your name + tagline for SEO -->
+    <title>Karan Verma — XR & Game Developer</title>
+    <meta
+      name="description"
+      content="XR and Game Developer specializing in Unity, OpenXR, Meta Quest and HoloLens."
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <canvas id="bg-canvas"></canvas>
+    <div class="cursor-glow" id="cursor-glow"></div>
+
+    <!-- PROJECT MODAL OVERLAY -->
+    <div
+      class="modal-overlay"
+      id="modal-overlay"
+      role="dialog"
+      aria-modal="true"
+      aria-label="Project details"
+    >
+      <div class="modal-wrap">
+        <div class="modal-topbar">
+          <button class="modal-close" id="modal-close" aria-label="Close">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2.5"
+              width="16"
+              height="16"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+            Close
+          </button>
+        </div>
+        <div class="modal" id="modal">
+          <div class="modal-scroll" id="modal-scroll">
+            <div class="modal-media" id="modal-media"></div>
+            <div class="modal-body">
+              <div class="modal-header">
+                <span class="modal-badge" id="modal-badge"></span>
+                <span class="modal-category" id="modal-category"></span>
+              </div>
+              <h2 class="modal-title" id="modal-title"></h2>
+              <p class="modal-desc" id="modal-desc"></p>
+              <div class="modal-tech" id="modal-tech"></div>
+              <div class="modal-links" id="modal-links"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ NAV ══════════════════════════════════════════════════ -->
+    <nav class="nav" id="nav">
+      <div class="nav-inner">
+        <!-- UPDATE: Your logo / initials -->
+        <a href="#home" class="nav-logo">
+          <svg
+            class="nav-logo-icon"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+            />
+          </svg>
+          KaranVR
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#work" class="nav-link">Work</a></li>
+          <li><a href="#skills" class="nav-link">Skills</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+
+        <!-- UPDATE: Your email -->
+        <a href="mailto:Contant.karanverma11@gmail.com" class="nav-cta">
+          Let's Connect <span class="nav-cta-icon">✉</span>
+        </a>
+
+        <!-- Theme toggle -->
+        <button
+          class="theme-toggle"
+          id="theme-toggle"
+          aria-label="Switch theme"
+        >
+          <span class="theme-toggle-dot" id="theme-dot"></span>
+          <span id="theme-label">Theme</span>
+        </button>
+
+        <button class="nav-burger" id="nav-burger" aria-label="Toggle menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+      <div class="nav-mobile" id="nav-mobile">
+        <a href="#home" class="nav-mobile-link">Home</a>
+        <a href="#about" class="nav-mobile-link">About</a>
+        <a href="#work" class="nav-mobile-link">Work</a>
+        <a href="#skills" class="nav-mobile-link">Skills</a>
+        <a href="#contact" class="nav-mobile-link">Contact</a>
+      </div>
+    </nav>
+
+    <!-- ══ HERO ═════════════════════════════════════════════════ -->
+    <section id="home" class="section hero-section">
+      <div class="hero-left">
+        <div class="hero-eyebrow reveal">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            width="14"
+            height="14"
+          >
+            <path
+              d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+            />
+          </svg>
+          XR &amp; Game Developer
+        </div>
+
+        <!-- UPDATE: Your hero headline -->
+        <h1 class="hero-headline reveal reveal-d1">
+          Crafting Immersive<br />
+          Worlds &amp; <span class="hero-accent">Experiences</span>
+        </h1>
+
+        <!-- UPDATE: Your hero subtext -->
+        <p class="hero-sub reveal reveal-d2">
+          I build interactive and immersive experiences across games, VR, AR and
+          beyond. Turning ideas into engaging realities.
+        </p>
+
+        <div class="hero-btns reveal reveal-d3">
+          <a href="#work" class="btn btn-primary">
+            View My Work
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              width="16"
+              height="16"
+            >
+              <rect x="2" y="3" width="20" height="14" rx="2" />
+              <path d="M8 21h8M12 17v4" />
+            </svg>
+          </a>
+          <!-- UPDATE: Your resume PDF path -->
+          <a
+            href="Assets/ResumeDoc/KaranGameDevEXP_Resume.pdf"
+            class="btn btn-outline"
+            target="_blank"
+          >
+            Download Resume
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero visual — replace with your own image if you have one -->
+      <div class="hero-right reveal reveal-d2">
+        <div class="hero-img-wrap">
+          <!-- UPDATE: Replace src with your hero image path e.g. "images/hero.jpg" -->
+          <!-- If you have no image, the gradient placeholder shows automatically -->
+          <div class="hero-img-placeholder">
+            <div class="hero-img-orb">
+              <div class="orb-ring r1"></div>
+              <div class="orb-ring r2"></div>
+              <div class="orb-ring r3"></div>
+              <div class="orb-core-icon">
+                <svg viewBox="0 0 80 48" fill="none" width="70">
+                  <rect
+                    x="2"
+                    y="10"
+                    width="76"
+                    height="28"
+                    rx="14"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                  />
+                  <circle
+                    cx="24"
+                    cy="24"
+                    r="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <circle
+                    cx="56"
+                    cy="24"
+                    r="8"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  />
+                  <path
+                    d="M32 24H48"
+                    stroke="currentColor"
+                    stroke-width="2.5"
+                    stroke-linecap="round"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+          <!-- OPTIONAL hero image:
+        <img src="images/hero.jpg" alt="Karan Verma — XR Developer" class="hero-img" />
+        --></div>
+      </div>
+    </section>
+
+    <!-- ══ ABOUT ═════════════════════════════════════════════════ -->
+    <section id="about" class="section about-section">
+      <div class="section-inner">
+        <div class="about-grid">
+          <!-- Left col -->
+          <div class="about-left">
+            <span class="section-eyebrow reveal">About Me</span>
+            <!-- UPDATE: Your personal tagline -->
+            <h2 class="about-headline reveal reveal-d1">
+              Developer.<br />Creator.<br />Problem Solver.
+            </h2>
+
+            <div class="about-bio-card reveal reveal-d2">
+              <!-- UPDATE: Your profile photo path, or remove the img tag -->
+              <div class="about-avatar">
+                <!-- <img src="images/avatar.jpg" alt="Karan Verma" /> -->
+                <div class="about-avatar-placeholder">KV</div>
+              </div>
+              <div class="about-bio-text">
+                <!-- UPDATE: Your bio -->
+                <p>
+                  Hi, I'm Karan - an XR and game developer passionate about
+                  building immersive digital experiences.
+                </p>
+                <p>
+                  I create interactive Games, AR and VR based applications that
+                  blend technology, design, and real-time interaction. My work
+                  focuses on making complex systems feel intuitive, engaging,
+                  and smooth for users.
+                </p>
+                <p>Always learning. Always building.</p>
+              </div>
+            </div>
+
+            <a
+              href="#about"
+              class="btn btn-outline about-more-btn reveal reveal-d3"
+            >
+              More About Me
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                width="14"
+                height="14"
+              >
+                <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2" />
+                <circle cx="12" cy="7" r="4" />
+              </svg>
+            </a>
+          </div>
+
+          <!-- Right col: What I Do -->
+          <div class="about-right reveal reveal-d1">
+            <span class="section-eyebrow">What I Do</span>
+
+            <!-- UPDATE: Add/remove/rename service pillars to match your work -->
+            <div class="services-list">
+              <div class="service-item">
+                <div class="service-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="20"
+                    height="20"
+                  >
+                    <rect x="2" y="3" width="20" height="14" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Game Development</h4>
+                  <p>
+                    Designing and building engaging gameplay experiences across
+                    platforms.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item">
+                <div class="service-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4>XR Experiences</h4>
+                  <p>
+                    Creating immersive VR and AR experiences that bring ideas to
+                    life.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item">
+                <div class="service-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="20"
+                    height="20"
+                  >
+                    <path
+                      d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Interactive Systems</h4>
+                  <p>
+                    Building custom systems, tools and mechanics that enhance
+                    gameplay and interactions.
+                  </p>
+                </div>
+              </div>
+
+              <div class="service-item">
+                <div class="service-icon">
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    width="20"
+                    height="20"
+                  >
+                    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+                  </svg>
+                </div>
+                <div>
+                  <h4>Rapid Prototyping</h4>
+                  <p>
+                    Testing ideas fast to create innovative, validated
+                    solutions.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ WORK ══════════════════════════════════════════════════ -->
+    <section id="work" class="section work-section">
+      <div class="section-inner">
+        <div class="work-header reveal">
+          <span class="section-eyebrow">My Work</span>
+        </div>
+
+        <!-- Filter tabs — auto-generated in main.js, but you can also hardcode -->
+        <div class="filter-tabs reveal reveal-d1" id="filter-tabs">
+          <button class="filter-btn active" data-filter="all">All</button>
+          <button class="filter-btn" data-filter="game">Games</button>
+          <button class="filter-btn" data-filter="xr">XR (VR/AR)</button>
+          <button class="filter-btn" data-filter="system">
+            Systems &amp; Mechanics
+          </button>
+          <button class="filter-btn" data-filter="prototype">Prototypes</button>
+          <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+
+        <!-- Project cards rendered by main.js from projects.js -->
+        <div class="projects-grid" id="projects-grid"></div>
+
+        <div class="work-footer reveal">
+          <p class="work-footer-note">
+            Click any project to see full details, media &amp; links.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ SKILLS ════════════════════════════════════════════════ -->
+    <section id="skills" class="section skills-section">
+      <div class="section-inner">
+        <span class="section-eyebrow reveal">Skills</span>
+
+        <!-- UPDATE: Add/remove/rename skill pills freely -->
+        <div class="skills-grid">
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M8 3H5a2 2 0 00-2 2v3m18 0V5a2 2 0 00-2-2h-3m0 18h3a2 2 0 002-2v-3M3 16v3a2 2 0 002 2h3"
+              />
+            </svg>
+            Unity
+          </div>
+
+          <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            C#
+          </div>
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 7.5l-9-5.25L3 7.5m18 0l-9 5.25m9-5.25v9l-9 5.25M3 7.5l9 5.25M3 7.5v9l9 5.25m0-9v9"
+              />
+            </svg>
+            Unreal Engine
+          </div>
+
+          <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M3.75 6A2.25 2.25 0 016 3.75h2.25A2.25 2.25 0 0110.5 6v2.25a2.25 2.25 0 01-2.25 2.25H6a2.25 2.25 0 01-2.25-2.25V6zM3.75 15.75A2.25 2.25 0 016 13.5h2.25a2.25 2.25 0 012.25 2.25V18a2.25 2.25 0 01-2.25 2.25H6A2.25 2.25 0 013.75 18v-2.25zM13.5 6a2.25 2.25 0 012.25-2.25H18A2.25 2.25 0 0120.25 6v2.25A2.25 2.25 0 0118 10.5h-2.25a2.25 2.25 0 01-2.25-2.25V6zM13.5 15.75a2.25 2.25 0 012.25-2.25H18a2.25 2.25 0 012.25 2.25V18A2.25 2.25 0 0118 20.25h-2.25A2.25 2.25 0 0113.5 18v-2.25z"
+              />
+            </svg>
+            Blueprints
+          </div>
+
+          <div class="skill-pill reveal reveal-d2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5"
+              />
+            </svg>
+            C++
+          </div>
+
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+              />
+            </svg>
+            SOLID Principles
+          </div>
+
+          <div class="skill-pill reveal reveal-d2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"
+              />
+            </svg>
+            OpenXR
+          </div>
+
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 8v4l3 3" />
+            </svg>
+            Meta Quest
+          </div>
+
+          <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+              <circle cx="12" cy="12" r="3" />
+            </svg>
+            HoloLens / MRTK
+          </div>
+
+          <div class="skill-pill reveal reveal-d2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"
+              />
+            </svg>
+            XR Interaction Toolkit
+          </div>
+
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <rect x="5" y="2" width="14" height="20" rx="2" />
+              <path d="M12 18h.01" />
+            </svg>
+            AR Foundation
+          </div>
+
+          <div class="skill-pill reveal reveal-d2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6.429 9.75L2.25 12l4.179 2.25m0-4.5l5.571 3 5.571-3m-11.142 0L2.25 7.5 12 2.25l9.75 5.25-4.179 2.25m0 0L21.75 12l-4.179 2.25m0 0l4.179 2.25L12 21.75 2.25 16.5l4.179-2.25m11.142 0l-5.571 3-5.571-3"
+              />
+            </svg>
+            Design Patterns
+          </div>
+          <!-- <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <polyline points="16 18 22 12 16 6" />
+              <polyline points="8 6 2 12 8 18" />
+            </svg>
+            Flutter / Dart
+          </div> -->
+
+          <div class="skill-pill reveal reveal-d2">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+            </svg>
+            HLSL / Shader Graph
+          </div>
+
+          <!-- <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <circle cx="12" cy="12" r="3" />
+              <path
+                d="M12 1v4M12 19v4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M1 12h4M19 12h4M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83"
+              />
+            </svg>
+            A* Pathfinding
+          </div> -->
+
+          <!-- <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+              />
+            </svg>
+            OBB Collision
+          </div> -->
+
+          <div class="skill-pill reveal">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"
+              />
+            </svg>
+            Git / GitHub
+          </div>
+
+          <div class="skill-pill reveal reveal-d1">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              width="16"
+              height="16"
+            >
+              <path
+                d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"
+              />
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96" />
+              <line x1="12" y1="22.08" x2="12" y2="12" />
+            </svg>
+            Blender
+          </div>
+
+          <!-- UPDATE: Add more skill pills here by copying the .skill-pill div above -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ CONTACT ═══════════════════════════════════════════════ -->
+    <section id="contact" class="section contact-section">
+      <div class="section-inner">
+        <div class="contact-grid">
+          <div class="contact-left reveal">
+            <span class="section-eyebrow">Let's Connect</span>
+            <!-- UPDATE: Contact section tagline -->
+            <h2 class="contact-headline">
+              Have a project in mind or just want to say hi? Feel free to reach
+              out!
+            </h2>
+          </div>
+
+          <div class="contact-right reveal reveal-d1">
+            <!-- UPDATE: Your actual contact links -->
+            <a
+              href="mailto:contact.karanverma11@gmail.com"
+              class="contact-link"
+            >
+              <div class="contact-link-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="18"
+                  height="18"
+                >
+                  <path
+                    d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+                  />
+                  <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">Email</span>
+                <span class="contact-link-value"
+                  >contact.karanverma11@gmail.com</span
+                >
+              </div>
+            </a>
+
+            <a
+              href="https://www.linkedin.com/in/karanverma11/"
+              class="contact-link"
+              target="_blank"
+              rel="noopener"
+            >
+              <div class="contact-link-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  width="18"
+                  height="18"
+                >
+                  <path
+                    d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6z"
+                  />
+                  <rect x="2" y="9" width="4" height="12" />
+                  <circle cx="4" cy="4" r="2" />
+                </svg>
+              </div>
+              <div class="contact-link-text">
+                <span class="contact-link-label">LinkedIn</span>
+                <span class="contact-link-value"
+                  >linkedin.com/in/karanverma11</span
+                >
+              </div>
+            </a>
+
+            <!-- UPDATE: Your GitHub username -->
+
+            <!--<a href="https://github.com/YOUR_GITHUB" class="contact-link" target="_blank" rel="noopener">
+            <div class="contact-link-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/></svg>
+            </div>
+            <div class="contact-link-text">
+              <span class="contact-link-label">GitHub</span>
+           
+              <span class="contact-link-value">github.com/YOUR_GITHUB</span>
+            </div>
+          </a> -->
+
+            <!-- ADD MORE social links here by copying a .contact-link block -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ FOOTER ════════════════════════════════════════════════ -->
+    <footer class="footer">
+      <div class="footer-inner">
+        <!-- UPDATE: Your name -->
+        <p>© 2025 Karan Verma. All rights reserved.</p>
+        <p class="footer-sub">Built from scratch · Hosted on GitHub Pages</p>
+      </div>
+    </footer>
+
+    <!-- Load projects data first, then main logic -->
+    <script src="projects.js"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
