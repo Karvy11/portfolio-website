@@ -436,7 +436,7 @@ const PROJECTS = [
       longDesc: `A standalone pathfinding module written in C# for Unity.
           Uses oriented bounding boxes (OBB) to register obstacles at runtime,
           computes clearance values per node, and continuously revalidates paths
-          as the scene changes. Built as part of the QWR technical assignment.`,
+          as the scene changes.`,
       tech: ["C#", "Unity", "A*", "OBB", "Spatial Partitioning"],
       media: [],
       links: [],
